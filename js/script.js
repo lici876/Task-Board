@@ -2,28 +2,23 @@
 let taskList = JSON.parse(localStorage.getItem("tasks")) || [];
 let nextId = JSON.parse(localStorage.getItem("nextId")) || 1;
 
-// Function to generate a unique task id
 function generateTaskId() {
     return nextId++;
 }
 
-// Function to create a task card
 function createTaskCard(task) {
     const taskCard = document.createElement("p");
     taskCard.classList.add("task");
     taskCard.setAttribute("draggable", "true");
     taskCard.innerText = task.content;
 
-    // Add drag event listeners to the task card
     addDragEvents(taskCard);
 
     return taskCard;
 }
 
-// Function to render the task list and make cards draggable
 function renderTaskList() {
-    const todoLane = document.getElementById("todo-lane");
-    todoLane.innerHTML = ""; // Clear existing tasks
+    const todoLane = document.
 
     taskList.forEach((task) => {
         const taskCard = createTaskCard(task);
